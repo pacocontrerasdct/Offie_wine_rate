@@ -1,0 +1,15 @@
+<form action='/wines/<%= "#{@wine.id}" %>' method="post">
+  <label for="wine[name]">Name:</label>
+  <input name="wine[name]" value='<%= "#{@wine.name}" %>'>
+
+  <label for="wine[country]">Country:</label>
+  <input name="wine[country]" value='<%= "#{@wine.country}" %>'>
+
+  <label for="wine[price]">Price:</label>
+  <input name="wine[price]" value='<%= "#{@wine.price}" %>'>
+
+  <label for="wine[rate]">Rate:</label>
+  <input name="wine[rate]" value='<%= "#{@wine.rate}" %>'>
+
+  <input type="submit" value="Create">
+</form>

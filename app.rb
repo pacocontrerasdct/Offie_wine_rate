@@ -28,8 +28,28 @@ class Offie < Sinatra::Base
   # show
   get '/wines/:id' do
     @wine = Wines.find(params[:id])
-    erb(:"wines/show")
+    erb(:"wines/edit")
   end
+
+  # update
+  put '/wines/:id' do
+    @wine = Wines.find(params[:id])
+    if @wines.update_attributes(params[:wine])
+      redirect("/wines/#{wine.id}")
+    else
+    erb(:"wines/edit")
+    end
+  end
+
+
+
+
+
+
+
+
+
+
 
 
 
