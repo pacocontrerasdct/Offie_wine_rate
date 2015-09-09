@@ -1,0 +1,52 @@
+body {
+  background-color: pink;
+  font-size: 62.5%;
+  font-family: courier, verdana, arial;
+  color: #333;
+  margin: 0;
+}
+#container {
+  margin: 0 auto;
+  width: 60%;
+
+}
+ul {
+  margin: 5px 20px;
+  padding: 0;
+}
+header {
+  font-size: 1.6em;
+  width: 100%;
+  display: inline-block;
+  border: 2px dotted black;
+  margin: 20px 0;
+}
+h1 {
+  font-size: 2.5em;
+  color: #111;
+  margin: 20px;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.6em;
+}
+li {
+  display: inline-block;
+  border: 2px dotted black;
+  padding: 10px 20px;
+  background-color: rgba(0,0,0,0.2);
+}
+a {
+  :before
+  font-size: 1.4em;
+  color: black;
+  text-decoration: none;
+}
+li:hover {
+  background-color: rgba(0,0,0,0);
+}
+span {
+  font-size: 1.8em;
+}

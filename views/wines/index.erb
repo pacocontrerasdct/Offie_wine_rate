@@ -1,0 +1,14 @@
+<h1>Index erb</h1>
+
+<div>
+  <% @wines.each do |wine| %>
+  <div class="row">
+    <span><%= wine.name %></span>
+    <span><%= wine.country %></span>
+    <span><%= wine.price %></span>
+    <span><%= wine.rate %></span>
+    <a href="/wines/<%= wine.id %>">Edit</a>
+
+  </div>
+  <% end %>
+</div>
