@@ -1,16 +1,16 @@
-<h1>Index erb</h1>
-
 <div>
   <% @wines.each do |wine| %>
   <div class="row">
-    <span><%= wine.name %></span>
-    <span><%= wine.country %></span>
-    <span><%= wine.price %></span>
-    <span><%= wine.rate %></span>
-    <a href="/wines/<%= wine.id %>/edit">Edit</a>
+    <span>Name: <%= wine.name %></span>
+    <span>Country: <%= wine.country %></span>
+    <span>Price: <%= wine.price %></span>
+    <span>Rate: <%= wine.rate %></span>
+    <span><a href="/wines/<%= wine.id %>/edit" class="actionButton">Edit</a></span>
+    <span>
     <form action='/wines/<%= wine.id %>/delete' method="post">
-      <input type="submit" value="Delete">
+      <input type="submit" value="Delete" class="actionForm">
     </form>
+    </span>
   </div>
   <% end %>
 </div>

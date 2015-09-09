@@ -1,17 +1,19 @@
-<h1>New erb</h1>
+<h1>Add your new taste</h1>
 
 <form action="/wines" method="post">
   <label for="wine[name]">Name:</label>
-  <input name="wine[name]">
-
+  <input name="wine[name]" autofocus>
+  <br>
   <label for="wine[country]">Country:</label>
   <input name="wine[country]">
-
+  <br>
   <label for="wine[price]">Price:</label>
   <input name="wine[price]">
-
+  <br>
   <label for="wine[rate]">Rate (1-5):</label>
   <input name="wine[rate]">
-
-  <input type="submit" value="Create">
+  <br>
+  <span>
+  <input type="submit" value="Create" class="actionForm">
+  </span>
 </form>

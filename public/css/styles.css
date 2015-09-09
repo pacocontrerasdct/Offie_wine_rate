@@ -49,4 +49,38 @@ li:hover {
 }
 span {
   font-size: 1.8em;
+  display: inline-block;
 }
+label {
+  font-size: 2em;
+  line-height: 200%;
+}
+input {
+  border: 1px solid black;
+  font-size : 1.8em;
+  margin: 5px 15px 5px 0;
+  padding: 0 5px;
+}
+.actionButton {
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid black;
+  margin: 5px 15px 5px 0;
+  padding: 0 5px;
+}
+.actionButton:hover, .actionForm:hover {
+  background-color: rgba(0,0,0,0);
+}
+.actionForm {
+  border: 1px solid black;
+  font-size : inherit;
+  margin: 5px 15px 5px 0;
+  padding: 0 5px;
+  background-color: rgba(0,0,0,0.2);
+  font-family: courier, verdana, arial;
+}
+
+
+
+
+
+
