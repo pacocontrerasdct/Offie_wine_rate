@@ -1,45 +1,62 @@
 class Offie < Sinatra::Base
 
+  # Index
   get '/' do
     @wines = Wines.all
     erb(:"wines/index")
   end
-
+  # Show
   get '/wines' do
     @wines = Wines.all
     erb(:"wines/index")
   end
-
+  # New
   get '/wines/new' do
     @wine = Wines.new
     erb(:"wines/new")
   end
-
-  # create
+  # Create
   post '/wines' do
     @wine = Wines.new(params[:wine])
-    @wine.save
-    #  redirect("/wines/#{@wine.id}")
-    #else
-    erb(:"wines/new")
-    #end
-  end
-
-  # show
-  get '/wines/:id' do
-    @wine = Wines.find(params[:id])
-    erb(:"wines/edit")
-  end
-
-  # update
-  put '/wines/:id' do
-    @wine = Wines.find(params[:id])
-    if @wines.update_attributes(params[:wine])
-      redirect("/wines/#{wine.id}")
+    if @wine.save
+      redirect("/wines/#{@wine.id}/show")
     else
-    erb(:"wines/edit")
+      erb(:"wines/new")
     end
   end
+  # Show
+  get '/wines/:id/show' do
+    @wine = Wines.find(params[:id])
+    erb(:"wines/show")
+  end
+
+  # Update
+  put '/wines/:id' do
+    #binding.pry
+    @wine = Wines.find(params[:id])
+    if @wine.update_attributes(params[:wine])
+      redirect("/wines/#{@wine.id}/show")
+    else
+    erb("/wines/#{@wine.id}")
+    end
+  end
+
+  # Edit
+  get '/wines/:id/edit' do
+    @wine = Wines.find(params[:id])
+    erb(:"wines/edit")
+  end
+
+  # Delete
+  post '/wines/:id/delete' do
+    @wine = Wines.find(params[:id])
+    if @wine.destroy
+      redirect('/wines')
+    else
+      redirect("/wines/#{@wine.id}")
+    end
+  end
+
 
 
 

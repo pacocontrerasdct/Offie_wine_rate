@@ -6,4 +6,5 @@ gem "activerecord"
 gem "rake"
 gem "pg"
 gem "tux"
+gem "pry"
 

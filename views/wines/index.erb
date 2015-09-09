@@ -7,8 +7,10 @@
     <span><%= wine.country %></span>
     <span><%= wine.price %></span>
     <span><%= wine.rate %></span>
-    <a href="/wines/<%= wine.id %>">Edit</a>
-
+    <a href="/wines/<%= wine.id %>/edit">Edit</a>
+    <form action='/wines/<%= wine.id %>/delete' method="post">
+      <input type="submit" value="Delete">
+    </form>
   </div>
   <% end %>
 </div>
