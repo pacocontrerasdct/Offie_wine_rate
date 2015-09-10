@@ -5,70 +5,73 @@ class Offie < Sinatra::Base
     @wines = Wines.all
     erb(:"wines/index")
   end
-  # Show
+
+  # Home
   get '/wines' do
     @wines = Wines.all
     erb(:"wines/index")
   end
+
   # New
   get '/wines/new' do
     @wine = Wines.new
     erb(:"wines/new")
   end
+
   # Create
   post '/wines' do
+    #binding.pry
     @wine = Wines.new(params[:wine])
     if @wine.save
-      redirect(:"/wines/#{@wine.id}/show")
+      @message = "New taste saved!"
+      erb(:"/wines/show")    ############### send us to a view
     else
-      erb(:"wines/new")
+      @message = "Sorry, couldn't save it! Try it again!"
+      redirect(:"wines/new")  ########### redirects to a get or post here 
     end
   end
-  # Show
-  get '/wines/:id/show' do
+
+  # Edit
+  get '/wines/:id' do
     @wine = Wines.find(params[:id])
-    erb("/wines/#{@wine.id}/show")
+    # erb(:"wines/edit")
+    erb :"wines/edit"
   end
 
   # Update
   post '/wines/:id' do
     #binding.pry
     @wine = Wines.find(params[:id])
+
     if @wine.update_attributes(params[:wine])
-      redirect(:"/wines/#{@wine.id}/show")
-    else
-    erb(:"/wines/#{@wine.id}")
-    end
-  end
-
-  # Edit
-  get '/wines/:id/edit' do
-    @wine = Wines.find(params[:id])
-    erb(:"wines/edit")
-  end
-
-  # Delete
-  post '/wines/:id/delete' do
-    @wine = Wines.find(params[:id])
-    if @wine.destroy
-      redirect(:'/wines')
+      @message = "Your taste has been updated!"
+      erb :"/wines/show"
     else
       redirect(:"/wines/#{@wine.id}")
     end
   end
 
+  # Delete
+  post '/wines/delete/:id' do
+    @wine = Wines.find(params[:id])
+    if @wine.destroy
+      @control = "done"
+    else
+      @control = "fail"
+    end
+    redirect(:"/wines/delete/#{@control}")
+  end
 
-
-
-
-
-
-
-
-
-
-
-
-
+  # Home after Delete
+  get '/wines/delete/:control' do
+    control = params[:control]
+    if control == "done"
+      @message = "Record deleted!"
+    else
+      @message = "Couldn't delete it!"
+    end
+    @wines = Wines.all
+    erb(:"wines/index")
+  end
 
 end

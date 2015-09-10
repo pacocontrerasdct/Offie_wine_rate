@@ -1,5 +1,5 @@
-
-  <% @wines.each do |wine| %>
+<h2><%= @message %></h2>
+<% @wines.each do |wine| %>
   <div id="square" class="square">
     <div class="square-top">
       <span class="lining">Name: <%= wine.name %></span> || 
@@ -8,12 +8,12 @@
       <span class="lining">Rate: <%= wine.rate %></span>
     </div>
     <div class="square-bottom">
-      <span><a href="/wines/<%= wine.id %>/edit" class="actionButton">Edit</a></span>
+      <span><a href="/wines/<%= wine.id %>" class="actionButton">Edit</a></span>
       <span>
-      <form action='/wines/<%= wine.id %>/delete' method="post">
+      <form action='/wines/delete/<%= wine.id %>' method="post">
         <input type="submit" value="Delete" class="actionForm">
       </form>
       </span>
     </div>
   </div>
-  <% end %>
+<% end %>

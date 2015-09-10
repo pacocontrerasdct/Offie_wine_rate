@@ -1,5 +1,5 @@
 <h2>Editing your taste</h2>
-<form action='/wines/<%= "#{@wine.id}" %>' method="post">
+<form action='/wines/<%= "#{@wine.id}"%>' method="post">
   <label for="wine[name]">Name:</label>
   <input name="wine[name]" value='<%= "#{@wine.name}" %>'>
   <br>
