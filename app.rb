@@ -19,7 +19,7 @@ class Offie < Sinatra::Base
   post '/wines' do
     @wine = Wines.new(params[:wine])
     if @wine.save
-      redirect("/wines/#{@wine.id}/show")
+      redirect(:"/wines/#{@wine.id}/show")
     else
       erb(:"wines/new")
     end
@@ -27,17 +27,17 @@ class Offie < Sinatra::Base
   # Show
   get '/wines/:id/show' do
     @wine = Wines.find(params[:id])
-    erb(:"wines/show")
+    erb("/wines/#{@wine.id}/show")
   end
 
   # Update
-  put '/wines/:id' do
+  post '/wines/:id' do
     #binding.pry
     @wine = Wines.find(params[:id])
     if @wine.update_attributes(params[:wine])
-      redirect("/wines/#{@wine.id}/show")
+      redirect(:"/wines/#{@wine.id}/show")
     else
-    erb("/wines/#{@wine.id}")
+    erb(:"/wines/#{@wine.id}")
     end
   end
 
@@ -51,9 +51,9 @@ class Offie < Sinatra::Base
   post '/wines/:id/delete' do
     @wine = Wines.find(params[:id])
     if @wine.destroy
-      redirect('/wines')
+      redirect(:'/wines')
     else
-      redirect("/wines/#{@wine.id}")
+      redirect(:"/wines/#{@wine.id}")
     end
   end
 

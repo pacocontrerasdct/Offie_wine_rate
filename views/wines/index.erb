@@ -1,16 +1,19 @@
-<div>
+
   <% @wines.each do |wine| %>
-  <div class="row">
-    <span>Name: <%= wine.name %></span>
-    <span>Country: <%= wine.country %></span>
-    <span>Price: <%= wine.price %></span>
-    <span>Rate: <%= wine.rate %></span>
-    <span><a href="/wines/<%= wine.id %>/edit" class="actionButton">Edit</a></span>
-    <span>
-    <form action='/wines/<%= wine.id %>/delete' method="post">
-      <input type="submit" value="Delete" class="actionForm">
-    </form>
-    </span>
+  <div id="square" class="square">
+    <div class="square-top">
+      <span class="lining">Name: <%= wine.name %></span> || 
+      <span class="lining">Country: <%= wine.country %></span><br>
+      <span class="lining">Price: <%= wine.price %></span> || 
+      <span class="lining">Rate: <%= wine.rate %></span>
+    </div>
+    <div class="square-bottom">
+      <span><a href="/wines/<%= wine.id %>/edit" class="actionButton">Edit</a></span>
+      <span>
+      <form action='/wines/<%= wine.id %>/delete' method="post">
+        <input type="submit" value="Delete" class="actionForm">
+      </form>
+      </span>
+    </div>
   </div>
   <% end %>
-</div>
