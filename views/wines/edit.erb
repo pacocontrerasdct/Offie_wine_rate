@@ -1,15 +1,16 @@
+<h2>Editing your taste</h2>
 <form action='/wines/<%= "#{@wine.id}" %>' method="post">
   <label for="wine[name]">Name:</label>
   <input name="wine[name]" value='<%= "#{@wine.name}" %>'>
-
+  <br>
   <label for="wine[country]">Country:</label>
   <input name="wine[country]" value='<%= "#{@wine.country}" %>'>
-
+  <br>
   <label for="wine[price]">Price:</label>
   <input name="wine[price]" value='<%= "#{@wine.price}" %>'>
-
+  <br>
   <label for="wine[rate]">Rate:</label>
   <input name="wine[rate]" value='<%= "#{@wine.rate}" %>'>
-
+  <br>
   <input type="submit" value="Update" class="actionButton">
 </form>
